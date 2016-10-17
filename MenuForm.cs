@@ -23,7 +23,6 @@ namespace HomeBank1
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-
         private void MenuForm_Load(object sender, EventArgs e)
         {
             Opacity = ComMthd.formOpacity;
@@ -94,16 +93,12 @@ namespace HomeBank1
 
         private bool SearchXmlFile()
         {
-            if (Directory.GetFiles(Application.StartupPath, "*.xml").Length == 0)
-            {
+            if (Directory.GetFiles(Application.StartupPath, "*.xml").Length == 0) {
                 return false;
-            }
-            else
-            {
+            } else {
                 return true;
             }
         }
-
 
     }
 }

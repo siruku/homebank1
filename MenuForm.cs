@@ -22,7 +22,6 @@ namespace HomeBank1
             topPictureBox.Visible = false;
             this.StartPosition = FormStartPosition.CenterScreen;
         }
-
         private void MenuForm_Load(object sender, EventArgs e)
         {
             Opacity = ComMthd.formOpacity;
@@ -32,6 +31,16 @@ namespace HomeBank1
             InitializeLabel();
             timer.Start();
         }
+        private void labelMakeNew_Click(object sender, EventArgs e) {
+            if (NameFile() == true) {
+                //SavedData.InitializeDataSet();
+                //SavedData.CreateNewData();
+                //SavedData.SaveFile();
+                EnableLabel(true);
+                ComMthd.ShowMsgBox("新しくノートが作成されたカメ！\r\nどんどん書き込んで欲しいカメ(>∇<*)", ComMthd.TYPE_INFORMATION);
+            }
+        }
+
         //Hand-Made-Function
         private void InitializeLabel()
         {
@@ -39,22 +48,17 @@ namespace HomeBank1
             labelOpen.Font = labelWrite.Font = labelAnalyze.Font = labelMakeNew.Font = new Font(labelOpen.Font.FontFamily, 14, FontStyle.Bold);
 
         }
-        private void EnableLabel(bool enableSign)
-        {
-            if (enableSign == true)
-            {
+        private void EnableLabel(bool enableSign) {
+            if (enableSign == true) {
                 labelWrite.ForeColor = labelAnalyze.ForeColor = SystemColors.Highlight;
                 labelWrite.Cursor = labelAnalyze.Cursor = Cursors.Hand;
-            }
-            else
-            {
+            } else {
                 labelWrite.ForeColor = labelAnalyze.ForeColor = SystemColors.ScrollBar;
                 labelWrite.Cursor = labelAnalyze.Cursor = Cursors.Arrow;
             }
             BackLabelWrite.Enabled = BackLabelAnalyze.Enabled = enableSign;
         }
-        private void UpdateLabelColor(Control label, Color color)
-        {
+        private void UpdateLabelColor(Control label, Color color) {
             //double opacity = bounds.Contains(Cursor.Position) ? 1.0 : 0.5;
             //if (Opacity != opacity) Opacity = opacity;
             Color labelColor = label.Bounds.Contains(this.PointToClient(Cursor.Position)) ?
@@ -77,19 +81,18 @@ namespace HomeBank1
                 }
             }
             return false;
-        }
-        private bool NameFile()
-        {
+        }*/
+        private bool NameFile() {
             timer.Stop();
             NamingFileForm formName = new NamingFileForm();
             ComMthd.ShowHandMadeDialog(this, formName);
             timer.Start();
-            if (formName.DialogResult == DialogResult.OK)
-            {
+            if (formName.DialogResult == DialogResult.OK) {
                 return true;
+            } else {
+                return false;
             }
-            else { return false; }
-        }*/
+        }
 
         private bool SearchXmlFile()
         {
@@ -99,6 +102,8 @@ namespace HomeBank1
                 return true;
             }
         }
+
+
 
     }
 }

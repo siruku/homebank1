@@ -63,8 +63,7 @@
             this.OkButton.TabIndex = 2;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
-
-            //            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // MsgLabel
             // 
@@ -89,7 +88,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MsgForm";
             this.Text = "Form2";
-            //            this.Load += new System.EventHandler(this.MsgForm_Load);
+            this.Load += new System.EventHandler(this.MsgForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

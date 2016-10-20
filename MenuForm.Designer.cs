@@ -81,6 +81,7 @@
             this.labelMakeNew.TabIndex = 3;
             this.labelMakeNew.Text = "新しくノートを作る";
             this.labelMakeNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMakeNew.Click += new System.EventHandler(this.labelMakeNew_Click);
             // 
             // labelOpen
             // 
